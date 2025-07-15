@@ -10,9 +10,10 @@ import {
 
 interface SignupScreenProps {
   onNavigateToLogin: () => void;
+  onSignupSuccess: () => void;
 }
 
-export default function SignupScreen({ onNavigateToLogin }: SignupScreenProps) {
+export default function SignupScreen({ onNavigateToLogin, onSignupSuccess }: SignupScreenProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +23,9 @@ export default function SignupScreen({ onNavigateToLogin }: SignupScreenProps) {
       Alert.alert("Error", "Please fill in all fields");
       return;
     }
-    Alert.alert("Success", "Signup functionality would go here");
+    // Dummy: call onSignupSuccess
+    onSignupSuccess();
+    // Alert.alert("Success", "Signup functionality would go here");
   };
 
   return (
@@ -119,7 +122,7 @@ export default function SignupScreen({ onNavigateToLogin }: SignupScreenProps) {
             >
               <TextInput
                 className="text-lg font-bold text-black"
-                placeholder="Create a password"
+                placeholder="Enter your password"
                 placeholderTextColor="#666"
                 value={password}
                 onChangeText={setPassword}
@@ -152,7 +155,7 @@ export default function SignupScreen({ onNavigateToLogin }: SignupScreenProps) {
                 className="text-center text-xl font-black text-black"
                 style={{ fontWeight: "900" }}
               >
-                Create Account
+                Sign up
               </Text>
             </View>
           </TouchableOpacity>

@@ -11,9 +11,10 @@ import {
 
 interface LoginScreenProps {
   onNavigateToSignup: () => void;
+  onLoginSuccess: () => void;
 }
 
-export default function LoginScreen({ onNavigateToSignup }: LoginScreenProps) {
+export default function LoginScreen({ onNavigateToSignup, onLoginSuccess }: LoginScreenProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,7 +23,9 @@ export default function LoginScreen({ onNavigateToSignup }: LoginScreenProps) {
       Alert.alert("Error", "Please fill in all fields");
       return;
     }
-    Alert.alert("Success", "Login functionality would go here");
+    // Dummy: call onLoginSuccess
+    onLoginSuccess();
+    // Alert.alert("Success", "Login functionality would go here");
   };
 
   return (
@@ -48,18 +51,7 @@ export default function LoginScreen({ onNavigateToSignup }: LoginScreenProps) {
         {/* Form Container */}
         <View className="flex-1 justify-center">
           {/* Plant Image at Top Right */}
-          <Image
-            source={require("../assets/images/bgimage1.png")}
-            style={{
-              position: "absolute",
-              top: -80,
-              right: 0,
-              width: 120,
-              height: 120,
-              resizeMode: "contain",
-              zIndex: 10,
-            }}
-          />
+         
           {/* Email Input */}
           <View className="mb-6">
             <View

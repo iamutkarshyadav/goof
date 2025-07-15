@@ -11,7 +11,9 @@ module.exports = {
       colors: {
         'login-bg': '#A388EE',
         'interventio-text': '#FF6B6B',
-        'dotsnitch':'#7FBC8CX'
+        'dotsnitch': '#7FBC8CX',
+        "to-box-welcome": "#7fbc8c",
+        "paragraph-box-welcome": "#DAF5F0",
       }
     },
   },
