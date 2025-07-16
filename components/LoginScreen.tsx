@@ -5,8 +5,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,
-  Image, // Add Image import
+  View
 } from "react-native";
 
 interface LoginScreenProps {
@@ -51,7 +50,7 @@ export default function LoginScreen({ onNavigateToSignup, onLoginSuccess }: Logi
         {/* Form Container */}
         <View className="flex-1 justify-center">
           {/* Plant Image at Top Right */}
-         
+
           {/* Email Input */}
           <View className="mb-6">
             <View
