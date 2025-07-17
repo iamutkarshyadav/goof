@@ -1,14 +1,19 @@
+import { useRouter } from "expo-router";
+import { useState } from "react";
 import {
   Dimensions,
   ImageBackground,
   ScrollView,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
 export default function MainScreen() {
+  const router = useRouter();
+  const [pressed, setPressed] = useState(false);
   return (
     <View className="flex-1">
       <ImageBackground
@@ -66,7 +71,7 @@ export default function MainScreen() {
                   Unleash
                 </Text>
               </View>
-              
+
               {/* Creativity Card */}
               <View
                 className="flex-1 border-4 border-black rounded-none px-4 py-6 bg-white shadow-lg items-center"
@@ -91,7 +96,7 @@ export default function MainScreen() {
           {/* Main Feature Section - IGNiTE */}
           <View className="w-full px-6 mb-8">
             <View
-              className="border-4 border-black rounded-none bg-card-bg-1 p-6"
+              className="border-4 border-black rounded-none bg-white p-6"
               style={{
                 shadowColor: "#296779",
                 shadowOffset: { width: 4, height: 4 },
@@ -103,7 +108,7 @@ export default function MainScreen() {
               {/* IGNiTE Header */}
               <View className="items-center mb-6">
                 <Text
-                  className="text-focus-text font-bold text-[72px] text-center"
+                  className="text-black font-bold text-[72px] text-center"
                   style={{
                     fontFamily: "fonts-for-focus",
                     fontWeight: "900",
@@ -114,7 +119,7 @@ export default function MainScreen() {
               </View>
 
               {/* Focus Session Card */}
-              <View className="bg-white border-4 border-black rounded-none p-4 mb-4">
+              <View className="bg-ignite-under-box border-4 border-black rounded-none p-4 mb-4">
                 <View
                   className="bg-red-700 w-full h-20 flex items-center justify-center mb-4"
                   style={{
@@ -129,28 +134,40 @@ export default function MainScreen() {
                     className="text-focusSession text-[32px] font-bold"
                     style={{ fontFamily: "SpaceGrotesk-Bold" }}
                   >
-                    Focus Session
+                    Focus Session ?
                   </Text>
                 </View>
 
                 {/* START Button - More Prominent */}
-                <View
-                  className="bg-focus-start w-48 h-16 mx-auto flex items-center justify-center"
+                <TouchableOpacity
+                  activeOpacity={1}
+                  onPressIn={() => setPressed(true)}
+                  onPressOut={() => setPressed(false)}
+                  onPress={() => router.push("/session-setup")}
                   style={{
+                    width: 192, // w-48
+                    height: 64, // h-16
+                    alignItems: "center",
+                    justifyContent: "center",
+                    alignSelf: "center",
+                    backgroundColor: "#facc15", // bg-focus-start
+                    borderWidth: pressed ? 1 : 4,
+                    borderColor: "#000",
+                    // Shadow styles
                     shadowColor: "#000",
-                    shadowOffset: { width: 4, height: 4 },
-                    shadowOpacity: 1,
+                    shadowOffset: pressed ? { width: 0, height: 0 } : { width: 4, height: 4 },
+                    shadowOpacity: pressed ? 0 : 1,
                     shadowRadius: 0,
-                    elevation: 8,
+                    elevation: pressed ? 0 : 8,
                   }}
                 >
                   <Text
                     className="text-focus-text text-[36px] font-bold"
                     style={{ fontFamily: "SpaceGrotesk-Bold" }}
                   >
-                    START
+                    LET&apos;S GO!
                   </Text>
-                </View>
+                </TouchableOpacity>
               </View>
             </View>
           </View>

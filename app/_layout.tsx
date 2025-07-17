@@ -1,6 +1,6 @@
-import { Stack } from "expo-router";
-import './globals.css';
 import { useFonts } from "expo-font";
+import { Stack } from "expo-router";
+import "./globals.css";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -9,8 +9,7 @@ export default function RootLayout() {
     "SpaceGrotesk-Bold": require("../assets/fonts/SpaceGrotesk-Bold.ttf"),
     "SpaceGrotesk-SemiBold": require("../assets/fonts/SpaceGrotesk-SemiBold.ttf"),
     "SpaceGrotesk-Light": require("../assets/fonts/SpaceGrotesk-Light.ttf"),
-    "fonts-for-focus":  require("../assets/fonts/Satoshi-Bold.otf")
-
+    "fonts-for-focus": require("../assets/fonts/Satoshi-Bold.otf"),
   });
 
   if (!fontsLoaded) return null;
@@ -18,9 +17,16 @@ export default function RootLayout() {
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="welcome" options={{ headerShown: false, gestureEnabled: false }} />
-      <Stack.Screen name="permission" options={{ headerShown: false, gestureEnabled: false }} />
+      <Stack.Screen
+        name="welcome"
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Stack.Screen
+        name="permission"
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
       <Stack.Screen name="main" options={{ headerShown: false }} />
+      <Stack.Screen name="session-setup" options={{ headerShown: false }} />
     </Stack>
   );
 }

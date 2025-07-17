@@ -16,6 +16,7 @@ module.exports = {
         "focus-text": "#ffffe3",
         focusSession: "#E3DFF2",
         "focus-start": "#E3A018",
+        "ignite-under-box": "#c5a1ff",
       },
       fontFamily: {
         "SpaceGrotesk-Medium": ["SpaceGrotesk-Medium"],
